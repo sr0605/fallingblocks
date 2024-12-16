@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dp1j1s7v08688"]
+
+[ext_resource type="Texture2D" uid="uid://ccc6x4h1ncx7e" path="res://Assets/Grid.png" id="1_ejuul"]
+
+[sub_resource type="TileSet" id="TileSet_ccb4p"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_usq41"]
+
+[node name="Grid" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_ejuul")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="Sprite2D"]
+tile_set = SubResource("TileSet_ccb4p")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(15.875, 40.375)
+scale = Vector2(32.25, 81.25)
+texture = SubResource("PlaceholderTexture2D_usq41")
