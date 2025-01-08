@@ -1,22 +1,45 @@
-[gd_scene load_steps=4 format=3 uid="uid://dp1j1s7v08688"]
+[gd_scene load_steps=5 format=3 uid="uid://oe56ml1n0bwa"]
 
-[ext_resource type="Texture2D" uid="uid://ccc6x4h1ncx7e" path="res://Assets/Grid.png" id="1_ejuul"]
+[ext_resource type="Texture2D" uid="uid://q1fl8v3b4glw" path="res://Assets/Tilemap.png" id="1_epsxa"]
+[ext_resource type="Script" path="res://Scripts/tileupdate.gd" id="2_aff4c"]
 
-[sub_resource type="TileSet" id="TileSet_ccb4p"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g7hpv"]
+texture = ExtResource("1_epsxa")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+10:0/0 = 0
+8:2/size_in_atlas = Vector2i(12, 22)
+8:2/0 = 0
+0:13/size_in_atlas = Vector2i(1, 4)
+0:13/0 = 0
+0:11/size_in_atlas = Vector2i(3, 2)
+0:11/0 = 0
+0:9/size_in_atlas = Vector2i(3, 2)
+0:9/0 = 0
+0:7/size_in_atlas = Vector2i(3, 2)
+0:7/0 = 0
+0:5/size_in_atlas = Vector2i(3, 2)
+0:5/0 = 0
+0:3/size_in_atlas = Vector2i(3, 2)
+0:3/0 = 0
+0:1/size_in_atlas = Vector2i(3, 2)
+0:1/0 = 0
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_usq41"]
+[sub_resource type="TileSet" id="TileSet_3lbmp"]
+sources/0 = SubResource("TileSetAtlasSource_g7hpv")
 
 [node name="Grid" type="Node2D"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture_filter = 1
-texture = ExtResource("1_ejuul")
-
-[node name="TileMapLayer" type="TileMapLayer" parent="Sprite2D"]
-tile_set = SubResource("TileSet_ccb4p")
-
-[node name="Sprite2D2" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(15.875, 40.375)
-scale = Vector2(32.25, 81.25)
-texture = SubResource("PlaceholderTexture2D_usq41")
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+position = Vector2(8, 8)
+tile_map_data = PackedByteArray(0, 0, 255, 255, 255, 255, 0, 0, 8, 0, 2, 0, 0, 0)
+tile_set = SubResource("TileSet_3lbmp")
+script = ExtResource("2_aff4c")
