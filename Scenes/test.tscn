@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://c8td06ax3ihfa"]
+[gd_scene load_steps=4 format=3 uid="uid://btwnlajafmd4"]
 
-[ext_resource type="Script" uid="uid://b4xynuc88d0c5" path="res://Scripts/test.gd" id="1_8uh7m"]
+[ext_resource type="Script" uid="uid://beat2ob4dgb53" path="res://Scenes/test.gd" id="1_8od7v"]
 [ext_resource type="Texture2D" uid="uid://bivyybt4i87fl" path="res://Assets/BlockAssets/Blue.png" id="2_6uqi0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xfwl5"]
@@ -8,7 +8,7 @@ size = Vector2(64, 64)
 
 [node name="Test" type="CharacterBody2D"]
 platform_wall_layers = 1
-script = ExtResource("1_8uh7m")
+script = ExtResource("1_8od7v")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1

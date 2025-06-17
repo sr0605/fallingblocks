@@ -1,35 +1,19 @@
-[gd_scene load_steps=6 format=3 uid="uid://bfpfh83d1ekev"]
+[gd_scene load_steps=4 format=3 uid="uid://bfpfh83d1ekev"]
 
-[ext_resource type="PackedScene" uid="uid://cm78fc143ebh4" path="res://Scenes/grid.tscn" id="1_qxrlw"]
-[ext_resource type="PackedScene" uid="uid://c8td06ax3ihfa" path="res://Scenes/test.tscn" id="2_qxrlw"]
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_wowpa"]
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_3dryh"]
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_wrm1d"]
+[ext_resource type="PackedScene" uid="uid://woh0cdwjb3b2" path="res://Scenes/gridv2.tscn" id="1_qxrlw"]
+[ext_resource type="PackedScene" uid="uid://btwnlajafmd4" path="res://Scenes/test.tscn" id="2_qxrlw"]
+[ext_resource type="PackedScene" uid="uid://b72sqsldo02iu" path="res://Scenes/s_block.tscn" id="3_wrm1d"]
 
 [node name="Game" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.5, 0.5)
 
-[node name="Grid" parent="." instance=ExtResource("1_qxrlw")]
+[node name="GameGrid" parent="." instance=ExtResource("1_qxrlw")]
 
 [node name="Test" parent="." instance=ExtResource("2_qxrlw")]
+position = Vector2(32, 32)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-
-[node name="BorderRight" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(320, 0)
-rotation = -1.5708
-shape = SubResource("WorldBoundaryShape2D_wowpa")
-
-[node name="BorderLeft" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-320, 0)
-rotation = 1.5708
-shape = SubResource("WorldBoundaryShape2D_3dryh")
-
-[node name="BorderBottom" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(0, 640)
-shape = SubResource("WorldBoundaryShape2D_wrm1d")
+[node name="SBlock" parent="." instance=ExtResource("3_wrm1d")]
+position = Vector2(3, 592)
+rotation = 2.0944
