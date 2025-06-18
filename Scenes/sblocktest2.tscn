@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://fi2t041fjtym"]
+
+[ext_resource type="Script" uid="uid://bcbefhtpfo6cc" path="res://Scenes/sblocktest_2.gd" id="1_dbtc4"]
+[ext_resource type="Texture2D" uid="uid://dr16wgwpmckxd" path="res://Assets/BlockAssets/S.png" id="2_fwb1q"]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_dbtc4")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(0, 0, 0, -64, 128, -64, 128, 0, 64, 0, 64, 64, -64, 64, -64, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-64, -64)
+texture = ExtResource("2_fwb1q")
+centered = false

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://ci8ybwiw6cq6v"]
+
+[ext_resource type="Script" uid="uid://xnitoo6drsrp" path="res://character_body_2d.gd" id="1_efln0"]
+[ext_resource type="PackedScene" uid="uid://fi2t041fjtym" path="res://Scenes/sblocktest2.tscn" id="2_efln0"]
+
+[node name="MatureBlockTest" type="CharacterBody2D"]
+script = ExtResource("1_efln0")
+
+[node name="CollisionPolygon2D" parent="." instance=ExtResource("2_efln0")]

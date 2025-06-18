@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://ejfeqge2kwyl"]
+
+[ext_resource type="Script" uid="uid://beat2ob4dgb53" path="res://Scenes/test.gd" id="1_haug7"]
+[ext_resource type="Texture2D" uid="uid://bivyybt4i87fl" path="res://Assets/BlockAssets/Blue.png" id="2_01eje"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xfwl5"]
+size = Vector2(64, 64)
+
+[node name="blueblocktest" type="CharacterBody2D"]
+platform_wall_layers = 1
+script = ExtResource("1_haug7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_01eje")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_xfwl5")
