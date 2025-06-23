@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://bufbuax7p0laf"]
+
+[ext_resource type="Script" uid="uid://b34d88mjfoa84" path="res://Scripts/s_block.gd" id="1_17ntm"]
+[ext_resource type="Texture2D" uid="uid://h4ueclid45o6" path="res://Assets/Tiles/Red.png" id="2_qkbf8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b0adk"]
+size = Vector2(64, 64)
+
+[node name="Z Block" type="CharacterBody2D"]
+script = ExtResource("1_17ntm")
+
+[node name="1" type="CollisionShape2D" parent="."]
+position = Vector2(-96, -32)
+shape = SubResource("RectangleShape2D_b0adk")
+
+[node name="RedBlock" type="Sprite2D" parent="1"]
+texture = ExtResource("2_qkbf8")
+
+[node name="2" type="CollisionShape2D" parent="."]
+position = Vector2(-32, -32)
+shape = SubResource("RectangleShape2D_b0adk")
+
+[node name="RedBlock" type="Sprite2D" parent="2"]
+texture = ExtResource("2_qkbf8")
+
+[node name="3" type="CollisionShape2D" parent="."]
+position = Vector2(-32, 32)
+shape = SubResource("RectangleShape2D_b0adk")
+
+[node name="RedBlock" type="Sprite2D" parent="3"]
+texture = ExtResource("2_qkbf8")
+
+[node name="4" type="CollisionShape2D" parent="."]
+position = Vector2(32, 32)
+shape = SubResource("RectangleShape2D_b0adk")
+
+[node name="RedBlock" type="Sprite2D" parent="4"]
+texture = ExtResource("2_qkbf8")

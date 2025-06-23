@@ -1,15 +1,38 @@
-[gd_scene load_steps=2 format=3 uid="uid://b72sqsldo02iu"]
+[gd_scene load_steps=4 format=3 uid="uid://b1r8tpaktckoc"]
 
-[ext_resource type="Texture2D" uid="uid://dr16wgwpmckxd" path="res://Assets/BlockAssets/S.png" id="1_jruki"]
+[ext_resource type="Script" uid="uid://b34d88mjfoa84" path="res://Scripts/s_block.gd" id="1_58x0a"]
+[ext_resource type="Texture2D" uid="uid://ktaqxdojpklu" path="res://Assets/Tiles/Green.png" id="2_20gu4"]
 
-[node name="SBlock" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b0adk"]
+size = Vector2(64, 64)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="S Block" type="CharacterBody2D"]
+script = ExtResource("1_58x0a")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PackedVector2Array(0, 0, 0, -64, 128, -64, 128, 0, 64, 0, 64, 64, -64, 64, -64, 0)
+[node name="1" type="CollisionShape2D" parent="."]
+position = Vector2(32, 32)
+shape = SubResource("RectangleShape2D_b0adk")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-64, -64)
-texture = ExtResource("1_jruki")
-centered = false
+[node name="GreenBlock" type="Sprite2D" parent="1"]
+texture = ExtResource("2_20gu4")
+
+[node name="2" type="CollisionShape2D" parent="."]
+position = Vector2(-32, 32)
+shape = SubResource("RectangleShape2D_b0adk")
+
+[node name="GreenBlock" type="Sprite2D" parent="2"]
+texture = ExtResource("2_20gu4")
+
+[node name="3" type="CollisionShape2D" parent="."]
+position = Vector2(32, -32)
+shape = SubResource("RectangleShape2D_b0adk")
+
+[node name="GreenBlock" type="Sprite2D" parent="3"]
+texture = ExtResource("2_20gu4")
+
+[node name="4" type="CollisionShape2D" parent="."]
+position = Vector2(96, -32)
+shape = SubResource("RectangleShape2D_b0adk")
+
+[node name="GreenBlock" type="Sprite2D" parent="4"]
+texture = ExtResource("2_20gu4")

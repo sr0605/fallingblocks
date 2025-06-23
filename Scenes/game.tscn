@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bfpfh83d1ekev"]
 
 [ext_resource type="PackedScene" uid="uid://woh0cdwjb3b2" path="res://Scenes/gridv2.tscn" id="1_qxrlw"]
-[ext_resource type="PackedScene" uid="uid://fi2t041fjtym" path="res://Scenes/sblocktest2.tscn" id="2_qxrlw"]
+[ext_resource type="PackedScene" uid="uid://b1r8tpaktckoc" path="res://Scenes/s_block.tscn" id="2_qxrlw"]
 
 [node name="Game" type="Node2D"]
 
@@ -10,4 +10,4 @@ zoom = Vector2(0.5, 0.5)
 
 [node name="GameGrid" parent="." instance=ExtResource("1_qxrlw")]
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("2_qxrlw")]
+[node name="S Block" parent="." instance=ExtResource("2_qxrlw")]
