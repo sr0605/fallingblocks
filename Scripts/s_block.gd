@@ -18,7 +18,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_up"):
 		
 		var r = int(rotation_degrees)
-		r = 360 % (r + 90)
+		r = (r + 90) % 360
 		rotation_degrees = r
 		
 	# Get the input direction and handle the movement/deceleration.
