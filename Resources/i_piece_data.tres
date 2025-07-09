@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://ctkux1yq4qyd3"]
+
+[ext_resource type="Texture2D" uid="uid://dvg12x3oe8uup" path="res://Assets/BlockAssets/LightBlue.png" id="1_68rr4"]
+[ext_resource type="Script" uid="uid://bnxaytdfmctj6" path="res://Scripts/piece_data.gd" id="2_swbjr"]
+
+[resource]
+script = ExtResource("2_swbjr")
+piece_texture = ExtResource("1_68rr4")
+tetromino_type = 0
+spawn_position = Vector2(-32, -608)

@@ -17,7 +17,10 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+
+Shared="*res://Scripts/shared.gd"
 Autoload="*res://Scripts/autoload.gd"
+
 
 [display]
 
