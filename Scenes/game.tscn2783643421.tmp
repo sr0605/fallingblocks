@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://bfpfh83d1ekev"]
+
+[ext_resource type="PackedScene" uid="uid://woh0cdwjb3b2" path="res://Scenes/gridv2.tscn" id="1_qxrlw"]
+[ext_resource type="Script" uid="uid://c6v06qp7jyjdh" path="res://Scripts/piece_spawner.gd" id="5_1l0tm"]
+[ext_resource type="Script" uid="uid://cpkkhdfhkadqu" path="res://Scripts/board.gd" id="6_v158k"]
+[ext_resource type="PackedScene" uid="uid://b1xch8sunto4r" path="res://Scenes/tetromino.tscn" id="7_h4fw4"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_3dryh"]
+distance = -642.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_wowpa"]
+normal = Vector2(1, 0)
+distance = -322.0
+
+[node name="Game" type="Node"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.5, 0.5)
+
+[node name="GameGrid" parent="." instance=ExtResource("1_qxrlw")]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="GameGrid"]
+
+[node name="Floor" type="CollisionShape2D" parent="GameGrid/StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_3dryh")
+
+[node name="Left Wall" type="CollisionShape2D" parent="GameGrid/StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_wowpa")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+
+[node name="PieceSpawner" type="Node" parent="."]
+script = ExtResource("5_1l0tm")
+
+[node name="Board" type="Node" parent="."]
+script = ExtResource("6_v158k")
+tetromino_scene = ExtResource("7_h4fw4")
