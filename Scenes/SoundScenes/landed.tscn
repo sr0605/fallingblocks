@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c1qbyftewil17"]
+
+[ext_resource type="AudioStream" uid="uid://b4wxiwcwel174" path="res://Sounds/Landed.wav" id="1_ccgax"]
+
+[node name="Landed" type="AudioStreamPlayer"]
+stream = ExtResource("1_ccgax")

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cevdd646feak"]
+
+[ext_resource type="AudioStream" uid="uid://b2p6w8p2j8tm6" path="res://Sounds/Move_Piece.wav" id="1_0jsbu"]
+
+[node name="MovePiece" type="AudioStreamPlayer"]
+stream = ExtResource("1_0jsbu")
