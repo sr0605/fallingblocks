@@ -96,7 +96,7 @@ func move(direction: Vector2) -> bool:
 	return false
 
 func calculate_global_position(direction: Vector2, starting_global_position: Vector2):
-	#TODO: check for collision with other tetrominos
+	#TODO: check for collision with other tetrominos (complete).
 	if is_colliding_with_other_tetrominos(direction, starting_global_position):
 		return null
 	#TODO: Check for collision with game bounds (complete).

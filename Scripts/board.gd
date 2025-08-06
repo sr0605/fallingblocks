@@ -4,6 +4,7 @@ extends Node
 class_name Board
 
 signal tetromino_locked
+signal game_over
 
 const ROW_COUNT = 20
 const COLUMN_COUNT = 10
@@ -32,9 +33,20 @@ func on_tetromino_locked(tetromino: Tetromino):
 	tetrominos.append(tetromino)
 	#Emits signal that tetromino is locked
 	tetromino_locked.emit()
-	#TODO: checkk is game over
+	#TODO: check is game over
+	check_game_over()
 	#TODO check for the lines to clear
 	clear_lines()
+
+func check_game_over():
+	for tetromino in tetrominos:
+		var pieces = tetromino.get_children().filter(func (c): return c is Piece)
+		for piece in pieces:
+			var y_location = piece.global_position.y
+			if y_location == -608:
+				game_over.emit()
+				print("Game Over")
+			print(y_location)  
 
 func clear_lines():
 	var board_pieces = fill_board_pieces()
@@ -80,5 +92,5 @@ func move_all_row_pieces_down(board_pieces, cleared_row_number):
 			return false
 		for piece in row_to_move:
 			piece.position.y += piece.get_size().y
-			board_pieces[cleared_row_number -1].append(piece)
-		board_pieces[i - 1].clear()
+			#board_pieces[cleared_row_number -1].append(piece)
+		#board_pieces[i - 1].clear() (These lines caused only one full line to clear)
