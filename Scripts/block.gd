@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-
+# STEVEN OLD DO NOT USE, PROBABLY GOOD TO REMOVE AT SOME POINT -steven 8/5/25
 
 const SHIFT = 64
 var cooldown = 0

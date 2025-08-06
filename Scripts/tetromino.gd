@@ -13,6 +13,13 @@ var pieces = []
 var other_tetrominos: Array[Tetromino] = []
 var ghost_tetromino
 
+
+#Sound variables:
+@onready var rotation_sound: AudioStreamPlayer = $RotationSound
+@onready var move_sound: AudioStreamPlayer = $MoveSound
+@onready var clunk_sound: AudioStreamPlayer = $ClunkSound
+
+
 #Defines bound coordinates for the pieces. Calculations are the inner borders of the grid (320 * 640) With an extra 8 pixels added to do the proper collision check.
 var bounds = {
 	"min_x": -328,
@@ -73,11 +80,14 @@ func hard_drop_ghost():
 
 func _input(event):
 	if Input.is_action_just_pressed("left"):
-		move(Vector2.LEFT)
+		if(move(Vector2.LEFT)):
+			move_sound.play()
 	elif Input.is_action_just_pressed("right"):
-		move(Vector2.RIGHT)
+		if(move(Vector2.RIGHT)):
+			move_sound.play()
 	elif Input.is_action_just_pressed("down"):
-		move(Vector2.DOWN)
+		if(move(Vector2.DOWN)):
+			move_sound.play()
 	elif Input.is_action_just_pressed("hard_drop"):
 		hard_drop()
 	elif Input.is_action_just_pressed("rotate_left"):
@@ -170,10 +180,15 @@ func apply_rotation(direction: int):
 	for i in pieces.size():
 		var piece = pieces[i]
 		piece.position = tetromino_cells[i] * piece.get_size()
+		
+	#rotation sound 8/5/25
+	rotation_sound.play()
 
 func hard_drop():
 	while(move(Vector2.DOWN)):
 		continue
+	#sound effect:
+	clunk_sound.play()
 	lock()
 
 func lock():

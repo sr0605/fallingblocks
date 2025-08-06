@@ -53,3 +53,7 @@ var data = {
 #Uses reotation matrix in math (linear algebra) to rotate tetrominos - always rotating 90 degrees
 var clockwise_rotation_matrix = [Vector2(0, -1), Vector2(1, 0)]
 var counter_clockwise_rotation_matrix = [Vector2(0, 1), Vector2(-1, 0)]
+
+var mastervol = 1.5
+var sfxvol = 1.5
+var musicvol = 1.5

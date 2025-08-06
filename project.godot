@@ -11,13 +11,15 @@ config_version=5
 [application]
 
 config/name="FallingBlocks"
-run/main_scene="res://Scenes/game.tscn"
+run/main_scene="uid://cutpavoifa11h"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 Shared="*res://Scripts/shared.gd"
+GlobalAudio="*res://Scenes/global_audio.tscn"
+AudioManager="*res://Scripts/AudioManager.gd"
 
 [display]
 

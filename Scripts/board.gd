@@ -13,6 +13,9 @@ const COLUMN_COUNT = 10
 var tetrominos: Array[Tetromino] = []
 #packedscene is so boardscene can be referenced within this scene
 @export var tetromino_scene: PackedScene
+#sound variables:
+@onready var line_clear: AudioStreamPlayer = $LineClear
+
 
 
 func spawn_tetromino(type: Shared.Tetromino, is_next_piece, spawn_position):
@@ -83,6 +86,8 @@ func clear_board_pieces(board_pieces):
 func clear_row(row):
 	for piece in row:
 		piece.queue_free()
+	line_clear.play()
+	
 
 func move_all_row_pieces_down(board_pieces, cleared_row_number):
 	for i in range(cleared_row_number -1, 1, -1):

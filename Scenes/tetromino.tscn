@@ -1,11 +1,28 @@
-[gd_scene load_steps=2 format=3 uid="uid://b1xch8sunto4r"]
+[gd_scene load_steps=5 format=3 uid="uid://b1xch8sunto4r"]
 
 [ext_resource type="Script" uid="uid://0fq408l1yc1e" path="res://Scripts/tetromino.gd" id="1_vnj2s"]
+[ext_resource type="AudioStream" uid="uid://ck40ub8tvh4yc" path="res://Assets/Sounds/Rotate_Piece.wav" id="2_q7wfc"]
+[ext_resource type="AudioStream" uid="uid://cxnq1n7elcngt" path="res://Assets/Sounds/Move_Piece.wav" id="3_jcfwp"]
+[ext_resource type="AudioStream" uid="uid://cc7vvgjhs1xoq" path="res://Assets/Sounds/Clunk.wav" id="4_68hpa"]
 
 [node name="Tetromino" type="Node2D"]
 script = ExtResource("1_vnj2s")
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
+
+[node name="RotationSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_q7wfc")
+volume_db = -15.955
+bus = &"SFX"
+
+[node name="MoveSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_jcfwp")
+bus = &"SFX"
+
+[node name="ClunkSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_68hpa")
+volume_db = -16.0
+bus = &"SFX"
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
