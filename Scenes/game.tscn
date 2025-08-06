@@ -1,11 +1,14 @@
 [gd_scene load_steps=7 format=3 uid="uid://bfpfh83d1ekev"]
 
+[ext_resource type="Script" uid="uid://br2747bwvsjjf" path="res://Scripts/game.gd" id="1_i6g32"]
 [ext_resource type="PackedScene" uid="uid://woh0cdwjb3b2" path="res://Scenes/gridv2.tscn" id="1_qxrlw"]
 [ext_resource type="Script" uid="uid://c6v06qp7jyjdh" path="res://Scripts/piece_spawner.gd" id="5_1l0tm"]
+[ext_resource type="AudioStream" uid="uid://b3xyvfjsut4cd" path="res://Assets/Sounds/Line_Clear.wav" id="6_i6g32"]
 [ext_resource type="Script" uid="uid://cpkkhdfhkadqu" path="res://Scripts/board.gd" id="6_v158k"]
 [ext_resource type="PackedScene" uid="uid://b1xch8sunto4r" path="res://Scenes/tetromino.tscn" id="7_h4fw4"]
 
 [node name="Game" type="Node"]
+script = ExtResource("1_i6g32")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.5, 0.5)
@@ -28,3 +31,27 @@ stream = ExtResource("6_i6g32")
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 3
 anchors_preset = 0
+offset_left = -1280.0
+offset_top = -720.0
+offset_right = -1080.0
+offset_bottom = -690.0
+
+[node name="ExitButton" type="Button" parent="MenuButtons"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -53.0
+offset_top = 18.0
+offset_right = 213.0
+offset_bottom = 101.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+theme_override_font_sizes/font_size = 30
+text = "Exit"
+
+[connection signal="pressed" from="MenuButtons/ExitButton" to="." method="_on_exit_button_pressed"]
