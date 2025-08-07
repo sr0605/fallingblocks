@@ -54,6 +54,10 @@ func _ready():
 		#This makes it so the ghost tetromino and tetromino works in unison. The root will set this up and the call deferred postpones the ghost_tetromino spawn until the root is fully loaded.
 		get_tree().root.add_child.call_deferred(ghost_tetromino)
 		hard_drop_ghost()
+		
+	#Sets timer value based on global variable (which is manipulated in board.gd generally)
+	timer.set_wait_time(Shared.timervalue)
+	
 
 func hard_drop_ghost():
 	var final_hard_drop_position
@@ -91,9 +95,9 @@ func _input(event):
 	elif Input.is_action_just_pressed("hard_drop"):
 		hard_drop()
 	elif Input.is_action_just_pressed("rotate_left"):
-		rotate_tetromino(-1)
-	elif Input.is_action_just_pressed("rotate_right"):
 		rotate_tetromino(1)
+	elif Input.is_action_just_pressed("rotate_right"):
+		rotate_tetromino(-1)
 
 func move(direction: Vector2) -> bool:
 	var new_position = calculate_global_position(direction, global_position)

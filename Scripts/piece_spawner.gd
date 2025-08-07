@@ -2,7 +2,7 @@ extends Node
 
 var current_tetromino 
 @onready var board: Node = $"../Board" as Board
-@onready var ui: CanvasLayer = $"../UI" as UI
+#@onready var ui: CanvasLayer = $"../UI" as UI
 var is_game_over = false
 
 #Spawns tetrominos infinitely.
@@ -21,4 +21,4 @@ func on_tetromino_locked():
 
 func on_game_over():
 	is_game_over = true
-	ui.show_game_over()
+#	ui.show_game_over()

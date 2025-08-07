@@ -49,6 +49,10 @@ func check_game_over():
 			if y_location == -608:
 				game_over.emit()
 				print("Game Over")
+				#Updates highscore if necessary then resets it
+				if(Shared.currentscore > Shared.highscore):
+					Shared.highscore = Shared.currentscore
+				Shared.reset_game_vars()
 			print(y_location)  
 
 func clear_lines():
@@ -87,6 +91,13 @@ func clear_row(row):
 	for piece in row:
 		piece.queue_free()
 	line_clear.play()
+	Shared.linescleared += 1
+	Shared.currentscore += 100 * Shared.scoremultiplier
+	if(Shared.linescleared > 0 && (Shared.linescleared % 10 == 0)):
+		Shared.level += 1
+		Shared.timervalue *= 0.9
+		Shared.scoremultiplier *= Shared.scoremultiplier #Squares to make scores go up like crazy after the first little while
+		
 	
 
 func move_all_row_pieces_down(board_pieces, cleared_row_number):

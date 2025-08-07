@@ -1,5 +1,25 @@
 extends Node
+#Variables for music, values in linear, if used directly in some func use linear_to_db(value) first to change
+var mastervol = 1.5
+var sfxvol = 1.5
+var musicvol = 1.5
 
+
+#variables for scoring system
+var highscore = 0
+var currentscore: int = 0
+var scoremultiplier = 1.1
+var level = 1
+var linescleared = 0
+var timervalue = 1
+
+#globally accessible func to reset so it changes properly no matter how you leave the game instance
+func reset_game_vars() -> void:
+	currentscore = 0
+	level = 1
+	linescleared = 0
+	timervalue = 1
+	scoremultiplier = 1.1
 
 enum Tetromino {
 	I, O, T, J, L, S, Z
@@ -53,7 +73,3 @@ var data = {
 #Uses reotation matrix in math (linear algebra) to rotate tetrominos - always rotating 90 degrees
 var clockwise_rotation_matrix = [Vector2(0, -1), Vector2(1, 0)]
 var counter_clockwise_rotation_matrix = [Vector2(0, 1), Vector2(-1, 0)]
-
-var mastervol = 1.5
-var sfxvol = 1.5
-var musicvol = 1.5

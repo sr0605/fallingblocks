@@ -1,6 +1,6 @@
 extends Control
 
-func _onready() -> void:
+func _ready() -> void:
 	$MarginContainer/VBoxContainer/MasterSlider.value = Shared.mastervol
 	$MarginContainer/VBoxContainer/SFXSlider.value = Shared.sfxvol
 	$MarginContainer/VBoxContainer/MusicSlider.value = Shared.musicvol
@@ -8,8 +8,8 @@ func _onready() -> void:
 
 
 func _on_master_slider_value_changed(value: float) -> void:
-	Shared.mastervol = value
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear_to_db(value))
+	Shared.mastervol = value
 	
 	
 func _on_sfx_slider_value_changed(value: float) -> void:
