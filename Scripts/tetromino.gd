@@ -78,7 +78,7 @@ func hard_drop_ghost():
 			var piece_position = children[i].position
 			pieces_position.append(piece_position)
 		
-		ghost_tetromino.set_ghost_tetromino(final_hard_drop_position, pieces_position)
+		#ghost_tetromino.set_ghost_tetromino(final_hard_drop_position, pieces_position)
 		
 	return final_hard_drop_position
 

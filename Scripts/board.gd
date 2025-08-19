@@ -15,8 +15,7 @@ var tetrominos: Array[Tetromino] = []
 @export var tetromino_scene: PackedScene
 #sound variables:
 @onready var line_clear: AudioStreamPlayer = $LineClear
-
-
+	
 
 func spawn_tetromino(type: Shared.Tetromino, is_next_piece, spawn_position):
 	var tetromino_data = Shared.data[type]
@@ -48,12 +47,12 @@ func check_game_over():
 			var y_location = piece.global_position.y
 			if y_location == -608:
 				game_over.emit()
-				print("Game Over")
+				#print("Game Over")
 				#Updates highscore if necessary then resets it
-				if(Shared.currentscore > Shared.highscore):
-					Shared.highscore = Shared.currentscore
-				Shared.reset_game_vars()
-			print(y_location)  
+				#if(Shared.currentscore > Shared.highscore):
+					#Shared.highscore = Shared.currentscore
+				Shared.save_score()
+				Shared.reset_game_vars() 
 
 func clear_lines():
 	var board_pieces = fill_board_pieces()

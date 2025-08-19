@@ -1,4 +1,7 @@
 extends Node
+
+const SAVEFILE = "user://savefile.save"
+
 #Variables for music, values in linear, if used directly in some func use linear_to_db(value) first to change
 var mastervol = 1.5
 var sfxvol = 1.5
@@ -13,6 +16,7 @@ var level = 1
 var linescleared = 0
 var timervalue = 1
 
+
 #globally accessible func to reset so it changes properly no matter how you leave the game instance
 func reset_game_vars() -> void:
 	currentscore = 0
@@ -20,6 +24,17 @@ func reset_game_vars() -> void:
 	linescleared = 0
 	timervalue = 1
 	scoremultiplier = 1.1
+	
+func save_score():
+	if(Shared.currentscore > Shared.highscore):
+		Shared.highscore = Shared.currentscore
+	var file = FileAccess.open(SAVEFILE, FileAccess.WRITE_READ)
+	file.store_32(Shared.highscore)
+	
+func load_score():
+	var file = FileAccess.open(SAVEFILE, FileAccess.READ)
+	if FileAccess.file_exists(SAVEFILE):
+		Shared.highscore = file.get_32()
 
 enum Tetromino {
 	I, O, T, J, L, S, Z
